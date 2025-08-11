@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B.A.L.L.S. Secure Login</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: url('images/blank.png') no-repeat center center fixed;
+        background-size: cover;
+        color: white;
+    }
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.5);
+    }
+    input, button {
+        margin: 5px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+    }
+    button {
+        background-color: #4CAF50;
+        color: white;
+        cursor: pointer;
+    }
+    .page {
+        display: none;
+        padding: 20px;
+        background-color: rgba(0,0,0,0.7);
+        height: 100vh;
+        overflow-y: auto;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+</style>
+</head>
+<body>
+
+<!-- Login Page -->
+<div id="loginPage" class="center">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username"><br>
+    <input type="password" id="password" placeholder="Password"><br>
+    <button onclick="login()">Login</button>
+</div>
+
+<!-- Gerrie Page -->
+<div id="gerriePage" class="page">
+    <h2>Welcome Gerrie</h2>
+    <img src="images/blank.png" alt="Gerrie Image"><br><br>
+    <p>blah blah blah</p>
+    <p>blah blah blah</p>
+    <p>blah blah blah</p>
+</div>
+
+<!-- Camera Page -->
+<div id="cameraPage" class="page">
+    <h2>Camera Access</h2>
+    <p>Enter date and time (format: YYYY-MM-DD HH:MM)</p>
+    <input type="text" id="dateTime" placeholder="2025-08-11 14:30">
+    <button onclick="checkCamera()">View Camera</button>
+</div>
+
+<script>
+    // Editable credentials
+    const users = {
+        "gerrie": "0000",
+        "camera": "0000"
+    };
+
+    // Correct date/time for camera page popup
+    const correctDateTime = "2025-08-11 14:30"; // Change this to your chosen correct time
+
+    function login() {
+        const username = document.getElementById('username').value.toLowerCase();
+        const password = document.getElementById('password').value;
+
+        if (users[username] && users[username] === password) {
+            document.getElementById('loginPage').style.display = "none";
+            if (username === "gerrie") {
+                document.getElementById('gerriePage').style.display = "block";
+            } else if (username === "camera") {
+                document.getElementById('cameraPage').style.display = "block";
+            }
+        } else {
+            alert("Incorrect username or password.");
+        }
+    }
+
+    function checkCamera() {
+        const inputTime = document.getElementById('dateTime').value;
+        if (inputTime === correctDateTime) {
+            const img = document.createElement('img');
+            img.src = 'images/blank.png';
+            img.style.position = "fixed";
+            img.style.top = "50%";
+            img.style.left = "50%";
+            img.style.transform = "translate(-50%, -50%)";
+            img.style.zIndex = "1000";
+            img.style.border = "5px solid white";
+            img.style.background = "black";
+            document.body.appendChild(img);
+        } else {
+            alert("No camera footage available for that time.");
+        }
+    }
+</script>
+
+</body>
+</html>
