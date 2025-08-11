@@ -8,17 +8,18 @@
     body {
         margin: 0;
         font-family: Arial, sans-serif;
-        background: url('images/ballbackground.png') no-repeat center center fixed;
-        background-size: cover;
-        color: white;
+        color: black;
     }
-    .center {
+    /* LOGIN PAGE STYLING */
+    #loginPage {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
         flex-direction: column;
-        background: rgba(0, 0, 0, 0);
+        background: url('images/ballbackground.png') no-repeat center center fixed;
+        background-size: cover;
+        color: white;
     }
     input, button {
         margin: 5px;
@@ -32,12 +33,16 @@
         color: white;
         cursor: pointer;
     }
+    /* PAGES */
     .page {
         display: none;
         padding: 20px;
-        background-color: rgba(0,0,0,0.7);
         height: 100vh;
         overflow-y: auto;
+    }
+    /* Gerrie & Camera background color */
+    #gerriePage, #cameraPage {
+        background-color: #F4F1E6; /* or rgb(244, 241, 230) */
     }
     img {
         max-width: 100%;
@@ -48,7 +53,7 @@
 <body>
 
 <!-- Login Page -->
-<div id="loginPage" class="center">
+<div id="loginPage">
     <h2>Login</h2>
     <input type="text" id="username" placeholder="Username"><br>
     <input type="password" id="password" placeholder="Password"><br>
@@ -119,5 +124,3 @@
 
 </body>
 </html>
-
-
