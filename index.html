@@ -96,7 +96,7 @@
     // Editable credentials
     const users = {
         "gerriexxcordon": "2445",
-        "camera": "0000"
+        "secretcameras": "8587"
     };
 
     // Correct date/time for camera page popup
@@ -108,9 +108,9 @@
 
         if (users[username] && users[username] === password) {
             document.getElementById('loginPage').style.display = "none";
-            if (username === "gerrie") {
+            if (username === "gerriexxcordon") {
                 document.getElementById('gerriePage').style.display = "block";
-            } else if (username === "camera") {
+            } else if (username === "secretcameras") {
                 document.getElementById('cameraPage').style.display = "block";
             }
         } else {
@@ -139,6 +139,7 @@
 
 </body>
 </html>
+
 
 
 
