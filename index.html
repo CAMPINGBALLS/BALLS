@@ -87,8 +87,8 @@
 <!-- Camera Page -->
 <div id="cameraPage" class="page">
     <h2>Camera Access</h2>
-    <p>Enter date and time (format: YYYY-MM-DD HH:MM)</p>
-    <input type="text" id="dateTime" placeholder="2025-08-11 14:30">
+    <p>Enter date and time (format: DD-MM-YYYY HH) (Hour rounded up)</p>
+    <input type="text" id="dateTime" placeholder="DD-MM-YYYY HH">
     <button onclick="checkCamera()">View Camera</button>
 </div>
 
@@ -100,7 +100,7 @@
     };
 
     // Correct date/time for camera page popup
-    const correctDateTime = "2025-08-11 14:30"; // Change this to your chosen correct time
+    const correctDateTime = "14-02-1984 19"; // Change this to your chosen correct time
 
     function login() {
         const username = document.getElementById('username').value.toLowerCase();
@@ -139,6 +139,7 @@
 
 </body>
 </html>
+
 
 
 
